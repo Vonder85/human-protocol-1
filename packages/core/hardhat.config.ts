@@ -129,6 +129,12 @@ const config: HardhatUserConfig = {
       accounts:
         process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
     },
+    OKCTestNet: {
+      chainId: 65,
+      url: 'https://exchaintestrpc.okex.org',
+      accounts:
+        process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
+    },
   },
   gasReporter: {
     enabled: process.env.REPORT_GAS !== undefined,
@@ -163,6 +169,7 @@ const config: HardhatUserConfig = {
       moonbeam: process.env.MOONSCAN_API_KEY || '',
       moonbaseAlpha: process.env.MOONSCAN_API_KEY || '',
       skale: process.env.SKALE_API_KEY || '',
+      OKCTestNet: "dacca098-df93-4516-b821-cb7cd955016a" || '',
     },
     customChains: [
       {
@@ -171,6 +178,14 @@ const config: HardhatUserConfig = {
         urls: {
           apiURL: process.env.SKALE_BROWSER_API_URL || '',
           browserURL: process.env.SKALE_BROWSER_URL || '',
+        },
+      },
+      {
+        network: 'OKCTestNet',
+        chainId: 65,
+        urls: {
+          apiURL: "https://exchaintestrpc.okex.org" || '',
+          browserURL: "https://exchaintestrpc.okex.org" || '',
         },
       },
     ],

@@ -24,6 +24,25 @@ if (!process.env.REACT_APP_WALLETCONNECT_PROJECT_ID) {
 }
 export const projectId = process.env.REACT_APP_WALLETCONNECT_PROJECT_ID;
 
+const okctestnet = {
+  id: 65,
+  name: 'OKX TestNet',
+  network: 'OKX TestNet',
+  nativeCurrency: {
+    decimals: 18,
+    name: 'OKC',
+    symbol: 'OKC',
+  },
+  rpcUrls: {
+    default: {
+      http: ['https://exchaintestrpc.okex.org'],
+    },
+    public: {
+      http: ['https://exchaintestrpc.okex.org'],
+    },
+  },
+};
+
 // 2. Configure wagmi client
 const chains = [
   mainnet,
@@ -34,6 +53,7 @@ const chains = [
   polygonMumbai,
   bscTestnet,
   fortune,
+  okctestnet
 ];
 const { provider } = configureChains(chains, [
   walletConnectProvider({ projectId }),

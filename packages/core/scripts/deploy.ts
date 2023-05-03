@@ -10,7 +10,7 @@ async function main() {
     18,
     'HMT'
   );
-  await HMTokenContract.deployed();
+  /* await HMTokenContract.deployed();
   console.log('HMToken Address: ', HMTokenContract.address);
 
   const Staking = await ethers.getContractFactory('Staking');
@@ -69,11 +69,11 @@ async function main() {
       ethers.utils.parseEther('1000')
     );
   }
-
+ */
   const Reputation = await ethers.getContractFactory('Reputation');
   const reputationContract = await upgrades.deployProxy(
     Reputation,
-    [stakingContract.address, 1],
+    ["0x20ef0Ddd8F4712b37A518Fe671007d46B0C2511D", 1],
     { initializer: 'initialize', kind: 'uups' }
   );
   await reputationContract.deployed();

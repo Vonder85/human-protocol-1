@@ -10,6 +10,7 @@ export enum ChainId {
   MOONBASE_ALPHA = 1287,
   LOCALHOST = 1338,
   SKALE = 1273227453,
+  OKCTESTNET = 65
 }
 
 export interface IEscrowNetwork {
@@ -86,6 +87,13 @@ export const ESCROW_NETWORKS: {
     rpcUrl: 'https://rpc.api.moonbase.moonbeam.network',
     factoryAddress: '0x5e622FF522D81aa426f082bDD95210BC25fCA7Ed',
     hmtAddress: '0x2dd72db2bBA65cE663e476bA8b84A1aAF802A8e3',
+  },
+  [ChainId.OKCTESTNET]: {
+    chainId: ChainId.OKCTESTNET,
+    title: 'OKC TestNet',
+    rpcUrl: 'https://exchaintestrpc.okex.org',
+    factoryAddress: '0x4FD64891D4F1a8c3a56011cDB6a7c41a69d253c5', // Proxy address
+    hmtAddress: '0x63170900372cCc15E21A48F037A774D92B93B6Be',
   },
   // [ChainId.SKALE]: {
   //   chainId: ChainId.SKALE,

@@ -9,6 +9,7 @@ export enum ChainId {
   MOONBEAM = 1284,
   LOCALHOST = 1338,
   SKALE = 1273227453,
+  OKCTESTNET = 65
 }
 
 export const SUPPORTED_CHAIN_IDS_PRODUCTION = [
@@ -23,7 +24,7 @@ export const SUPPORTED_CHAIN_IDS_PRODUCTION = [
 
 export const SUPPORTED_CHAIN_IDS =
   process.env.NODE_ENV === 'development'
-    ? [ChainId.LOCALHOST]
+    ? [ChainId.LOCALHOST, ChainId.OKCTESTNET]
     : SUPPORTED_CHAIN_IDS_PRODUCTION;
 
 export interface IEscrowNetwork {
@@ -39,6 +40,15 @@ export interface IEscrowNetwork {
 export const ESCROW_NETWORKS: {
   [chainId in ChainId]?: IEscrowNetwork;
 } = {
+  [ChainId.OKCTESTNET]: {
+    chainId: ChainId.OKCTESTNET,
+    title: 'OKC TestNet',
+    scanUrl: '',
+    rpcUrl: 'https://exchaintestrpc.okex.org',
+    subgraphUrl: '',
+    factoryAddress: '0x4FD64891D4F1a8c3a56011cDB6a7c41a69d253c5',
+    hmtAddress: '0x63170900372cCc15E21A48F037A774D92B93B6Be',
+  },
   [ChainId.GOERLI]: {
     chainId: ChainId.GOERLI,
     title: 'Ethereum Goerli',

@@ -45,6 +45,25 @@ const fortune: Chain = {
   },
 };
 
+const okctestnet: Chain = {
+  id: 65,
+  name: 'OKX TestNet',
+  network: 'OKX TestNet',
+  nativeCurrency: {
+    decimals: 18,
+    name: 'OKC',
+    symbol: 'OKC',
+  },
+  rpcUrls: {
+    default: {
+      http: ['https://exchaintestrpc.okex.org'],
+    },
+    public: {
+      http: ['https://exchaintestrpc.okex.org'],
+    },
+  },
+};
+
 // Configure chains & providers with the Alchemy provider.
 // Two popular providers are Alchemy (alchemy.com) and Infura (infura.io)
 const { chains, provider, webSocketProvider } = configureChains(
@@ -57,6 +76,7 @@ const { chains, provider, webSocketProvider } = configureChains(
     bsc,
     bscTestnet,
     fortune,
+    okctestnet,
   ],
   [publicProvider()]
 );

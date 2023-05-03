@@ -14,7 +14,7 @@ export const LaunchFail = ({ message, onBack }: LaunchFailProps) => {
         Fail!
       </Typography>
       <Typography variant="body2" color="primary">
-        {message}
+        {JSON.stringify(message)}
       </Typography>
       <Button
         sx={{ mt: 5, minWidth: '200px' }}
