@@ -118,17 +118,13 @@ class Escrow {
       EscrowFactoryAbi as [],
       factoryAddress
     );
-    console.log("web3.eth.defaultAccount", web3.eth.defaultAccount)
     const gas = await escrowFactory.methods
       .createEscrow(token, [jobRequester])
       .estimateGas({ from: web3.eth.defaultAccount });
-      console.log("gas", gas)
     const gasPrice = await web3.eth.getGasPrice();
-    console.log("gasPrice", gasPrice)
     const result = await escrowFactory.methods
       .createEscrow(token, [jobRequester])
       .send({ from: web3.eth.defaultAccount, gas, gasPrice });
-      console.log("result", result)
     return result.events.Launched.returnValues.escrow;
   }
 

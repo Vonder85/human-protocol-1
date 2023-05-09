@@ -76,7 +76,6 @@ export async function processFortunes(
 ) {
   const web3 = plugins.web3[fortune.chainId];
 
-  console.log("plugins.", web3)
   if (!web3.utils.isAddress(fortune.escrowAddress)) {
     throw new Error('Valid ethereum address required for escrowAddress');
   }
@@ -127,7 +126,6 @@ export async function processFortunes(
 
   let escrow = plugins.storage.getEscrow(fortune.escrowAddress);
 
-  console.log("escrow", escrow)
   if (!escrow) {
     escrow = plugins.storage.addEscrow(
       fortune.escrowAddress,
@@ -147,7 +145,6 @@ export async function processFortunes(
 
   if (Array.isArray(fortunesStored) && fortunesStored.length > 0) {
     const fortuneStored = fortunesStored[0];
-    console.log("fortune stored", fortuneStored)
     if (!fortuneStored.score) {
       const isValid = await isValidFortune(plugins, fortune, escrow);
       if (!isValid) throw new Error('Fortune is not unique or contains curses');

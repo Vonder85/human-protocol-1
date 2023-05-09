@@ -81,6 +81,6 @@ export const REPUTATION_NETWORKS: {
     chainId: ChainId.OKCTESTNET,
     title: 'OKC TestNet',
     rpcUrl: 'https://exchaintestrpc.okex.org',
-    reputationAddress: '0x0636F0a3A5Ab949f0c0442C41D0367bd1313630F',
+    reputationAddress: '0x70997970C51812dc3A010C7d01b50e0d17dc79C8',
   },
 };

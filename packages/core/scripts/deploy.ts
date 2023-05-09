@@ -10,7 +10,8 @@ async function main() {
     18,
     'HMT'
   );
-  /* await HMTokenContract.deployed();
+
+  await HMTokenContract.deployed();
   console.log('HMToken Address: ', HMTokenContract.address);
 
   const Staking = await ethers.getContractFactory('Staking');
@@ -69,7 +70,7 @@ async function main() {
       ethers.utils.parseEther('1000')
     );
   }
- */
+
   const Reputation = await ethers.getContractFactory('Reputation');
   const reputationContract = await upgrades.deployProxy(
     Reputation,
